@@ -8,18 +8,16 @@ const ui = new UI;
 loadEventListeners();
 function loadEventListeners(){
     nameinput.addEventListener("keyup",searchName);
-    github_btn.addEventListener("click",activeGitHubDatabase)
 }
 
-function activeGitHubDatabase(){
+github_btn.addEventListener("click",function(){
     github_btn.style.backgroundColor = 'green';
-    github_btn.id = 1;
+    github_btn.id = 1
+    github_btn.innerHTML = "Github Database Activated! Able To Locate Users Now!"
+    })
 
-}
 
 function searchName(){
-    const xx = activeGitHubDatabase();
-    console.log(xx);
     if (nameinput.value !== ''){
         github.getUser(nameinput.value)
             .then(data => {
